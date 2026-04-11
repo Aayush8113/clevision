@@ -1,0 +1,95 @@
+@import "tailwindcss";
+
+@theme {
+  /* Functional Semantic Variables */
+  --color-bg-base: var(--bg-base);
+  --color-bg-card: var(--bg-card);
+  --color-bg-pill: var(--bg-pill);
+  --color-bg-input: var(--bg-input);
+  
+  --color-text-main: var(--text-main);
+  --color-text-dim: var(--text-dim);
+  --color-text-accent: var(--text-accent);
+
+  --color-border-dim: var(--border-dim);
+  --color-amber-500: #f59e0b;
+  --color-amber-600: #d97706;
+
+  /* Traditional Scales for reference */
+  --color-zinc-50: #fafafa;
+  --color-zinc-100: #f4f4f5;
+  --color-zinc-200: #e4e4e7;
+  --color-zinc-300: #d4d4d8;
+  --color-zinc-400: #a1a1aa;
+  --color-zinc-500: #71717a;
+  --color-zinc-600: #52525b;
+  --color-zinc-700: #3f3f46;
+  --color-zinc-800: #27272a;
+  --color-zinc-900: #18181b;
+  --color-zinc-950: #09090b;
+}
+
+:root {
+  --bg-base: #fafafa;
+  --bg-card: #ffffff;
+  --bg-pill: rgba(255, 255, 255, 0.7);
+  
+  --text-main: #09090b;
+  --text-dim: #71717a;
+  --text-accent: #f59e0b;
+
+  --border-dim: #e4e4e7;
+  --bg-input: #f4f4f5;
+}
+
+.dark {
+  --bg-base: #09090b;
+  --bg-card: #18181b;
+  --bg-pill: rgba(24, 24, 27, 0.8);
+  
+  --text-main: #fafafa;
+  --text-dim: #a1a1aa;
+  --text-accent: #fbbf24;
+
+  --border-dim: #27272a;
+  --bg-input: #09090b;
+}
+
+@layer base {
+  body {
+    @apply text-text-main bg-bg-base antialiased overflow-x-hidden transition-colors duration-500;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+  }
+}
+
+@utility glass-pill {
+  @apply bg-bg-pill backdrop-blur-xl border border-border-dim shadow-[0_8px_32px_0_rgba(0,0,0,0.05)] rounded-full;
+}
+
+@utility btn-luxe {
+  @apply relative px-8 py-4 bg-text-main text-bg-base font-bold rounded-full overflow-hidden transition-all duration-500 hover:tracking-widest active:scale-95 border border-border-dim;
+}
+
+@utility btn-outline-luxe {
+  @apply px-8 py-4 border-2 border-border-dim text-text-main font-bold rounded-full hover:bg-text-main hover:text-bg-base transition-all duration-500;
+}
+
+@utility input-luxe {
+  @apply w-full px-6 py-4 bg-bg-input border border-border-dim text-text-main rounded-2xl focus:border-amber-500 transition-all duration-300 placeholder:text-text-dim/50;
+}
+
+.lenis.lenis-smooth {
+  height: auto;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
